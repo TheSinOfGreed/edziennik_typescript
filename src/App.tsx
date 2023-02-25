@@ -1,6 +1,8 @@
 import LogIn from './pages/LogIn';
 
-
+import Navbar from './components_general/Navbar';
+import Footer from './components_general/Footer';
+import SideNav from './components_general/Sidenav';
 import React from 'react';
 import { Route, Routes, useLocation, Outlet, Navigate} from 'react-router-dom';
 
@@ -12,12 +14,12 @@ function App(): JSX.Element {
   function Layout (): JSX.Element {
     return (
         <>
-          {/* <Navbar/> */}
+          <Navbar/>
           <div id='layoutSidenav'>
-            {/* <SideNav/> */}
+            <SideNav/>
             <div id='layoutSidenav_content'>
-                  {/* <Outlet /> */}
-                  {/* <Footer /> */}
+                  <Outlet />
+                  <Footer />
             </div>
           </div>
         </>
