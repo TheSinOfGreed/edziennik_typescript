@@ -39,7 +39,7 @@ const Frekwencja: React.FC = () => {
         return obj;
     }
 
-    const handleClick = function(color: uczen_kolorPrzycisku){
+    const handleClick = function(color: uczen_kolorPrzycisku): void{
         setStateColor(color);
     }
 
@@ -57,10 +57,9 @@ const Frekwencja: React.FC = () => {
                     const json2: klasa_daty = Object.values(json[0])[0];
                     setKlasa(Object.keys(json[0])[0]);
                     setPrzedmiot(Object.keys(json2)[0]);
-                    
                 }
             })
-            .catch((error) => alert(error));
+            .catch((error: Error) => alert(error));
     }, []);
 
     const wyszukaj = function(){    //Wyszukaj po klasie, przedmiocie, dacie uczniów z frekwencja
@@ -68,9 +67,9 @@ const Frekwencja: React.FC = () => {
             method: 'GET',
             credentials: 'include',
           })
-        .then((response) => response.json())
-        .then((response_json)=>{setListaUczniow(response_json);setStateColor(stworzObejctColor(response_json));})
-        .catch((error) => alert(error));
+        .then((response: Response) => response.json())
+        .then((response_json: Uczen[])=>{setListaUczniow(response_json);setStateColor(stworzObejctColor(response_json));})
+        .catch((error: Error) => alert(error));
     }
 
     const zapisz = function(){  //zapisz frekwencje
