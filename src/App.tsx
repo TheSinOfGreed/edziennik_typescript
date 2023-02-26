@@ -1,4 +1,6 @@
 import LogIn from './pages/LogIn';
+import Home from './pages/Home';
+import Frekwencja from './pages/Frekwencja';
 
 import Navbar from './components_general/Navbar';
 import Footer from './components_general/Footer';
@@ -31,10 +33,10 @@ function App(): JSX.Element {
         <Routes>
           {/* elementy posiadajace toolbary itd */}
             <Route path="/home" element={sessionStorage.getItem('18062002') != null ? <Layout /> : <Navigate to="/"/>}>
-              {/* <Route index element={<Home />} /> */}
-              {/* <Route exact path="oceny" element={<Oceny/>} />
-              <Route exact path="frekwencja" element={<Frekwencja/>} />
-              <Route exact path="uwagi" element={<Uwagi/>} />
+              <Route index element={<Home />} />
+              {/* <Route exact path="oceny" element={<Oceny/>} /> */}
+              <Route path="frekwencja" element={<Frekwencja/>} />
+              {/* <Route exact path="uwagi" element={<Uwagi/>} />
               <Route exact path="praceDomowe" element={<PracaDomowa/>} />
               <Route exact path="sprawdziany" element={<Sprawdziany/>} /> */}
 
