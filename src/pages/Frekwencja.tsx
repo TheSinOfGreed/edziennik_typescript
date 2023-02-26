@@ -62,7 +62,7 @@ const Frekwencja: React.FC = () => {
             .catch((error: Error) => alert(error));
     }, []);
 
-    const wyszukaj = function(){    //Wyszukaj po klasie, przedmiocie, dacie uczniów z frekwencja
+    const wyszukaj = function(): void{    //Wyszukaj po klasie, przedmiocie, dacie uczniów z frekwencja
         fetch(`http://localhost:3001/frequency/${klasa}/${przedmiot}/${refData.current.value}`,{
             method: 'GET',
             credentials: 'include',
@@ -72,7 +72,7 @@ const Frekwencja: React.FC = () => {
         .catch((error: Error) => alert(error));
     }
 
-    const zapisz = function(){  //zapisz frekwencje
+    const zapisz = function(): void{  //zapisz frekwencje
 
         const uczniowieDoWyslania = [];
         if(ListaUczniow !== null && stateColor !== null){
@@ -81,7 +81,7 @@ const Frekwencja: React.FC = () => {
             }
         }
 
-        const frek_do_wyslania = JSON.stringify({
+        const frek_do_wyslania: string = JSON.stringify({
             klasa: klasa,
             przedmiot: przedmiot,
             data: refData.current.value,
@@ -97,8 +97,8 @@ const Frekwencja: React.FC = () => {
             credentials: 'include',
             body: frek_do_wyslania
           })
-        .then((response) => response.status === 200 ? alert("Dodano frekwencję") : alert("Coś poszło nie tak"))
-        .catch((error) => console.log(error));
+        .then((response: Response) => response.status === 200 ? alert("Dodano frekwencję") : alert("Coś poszło nie tak"))
+        .catch((error: Error) => console.log(error));
     }
 
 

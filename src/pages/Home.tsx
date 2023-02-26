@@ -1,5 +1,5 @@
 import React from 'react';
-//import HomePlanZajec from '../components_special/Home_plan_zajec.js';
+import HomePlanZajec from '../components_special/Home_plan_zajec';
 import '../styles/Home.css';
 
 
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
               </div>
             </div>
             
-            {/* <HomePlanZajec /> */}
+            <HomePlanZajec />
         </div>
     </main>
   )
